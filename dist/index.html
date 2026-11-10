@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Story Lens — Creative Production Studio | Cinematic Video, Ad Reels, Drone & Studio</title>
+  <meta name="description" content="Story Lens: Translating brand moments into visceral perspectives. End-to-end commercial videography, viral 9:16 ad reels, high-velocity FPV drone tracking, and studio soundstage productions." />
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23050505' stroke='%23D4AF37' stroke-width='3'/><circle cx='50' cy='50' r='18' fill='%23D4AF37'/><line x1='50' y1='8' x2='50' y2='28' stroke='%23D4AF37' stroke-width='3'/><line x1='50' y1='72' x2='50' y2='92' stroke='%23D4AF37' stroke-width='3'/><line x1='8' y1='50' x2='28' y2='50' stroke='%23D4AF37' stroke-width='3'/><line x1='72' y1='50' x2='92' y2='50' stroke='%23D4AF37' stroke-width='3'/></svg>" />
+
+  <!-- Google Fonts: Bebas Neue, Anton, Syne, Cormorant Garamond, Plus Jakarta Sans, Space Mono, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Strict Stylesheet -->
+  <link rel="stylesheet" crossorigin href="./assets/index-4lkI_pCe.css">
+</head>
+<body>
+
+  <!-- Top Gold Scroll Progress Indicator -->
+  <div class="scroll-progress-line" id="scrollProgressLine"></div>
+
+  <!-- Floating Circular Back To Top Button with SVG Progress Ring -->
+  <button class="floating-back-top" id="backToTopBtn" aria-label="Back to top">
+    <svg class="progress-ring" viewBox="0 0 52 52">
+      <circle cx="26" cy="26" r="25" id="progressRingCircle"></circle>
+    </svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Film Grain Overlay -->
+  <div class="film-grain"></div>
+
+  <!-- Camera Focus Reticle Cursor for Hero Banner (Viewfinder Crosshairs & Focus Brackets) -->
+  <div class="banner-focus-reticle" id="bannerFocusReticle" aria-hidden="true">
+    <svg class="reticle-svg" viewBox="0 0 100 100" fill="none">
+      <!-- Outer Focus Circle with Dual Stroke for Contrast -->
+      <circle cx="50" cy="50" r="32" class="reticle-ring-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" />
+      <circle cx="50" cy="50" r="32" class="reticle-ring" stroke="#FFFFFF" stroke-width="2.5" />
+
+      <!-- 4 Crosshair Tick Marks (12, 6, 9, 3 o'clock) -->
+      <line x1="50" y1="8" x2="50" y2="28" class="reticle-tick-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="50" y1="8" x2="50" y2="28" class="reticle-tick" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+
+      <line x1="50" y1="72" x2="50" y2="92" class="reticle-tick-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="50" y1="72" x2="50" y2="92" class="reticle-tick" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+
+      <line x1="8" y1="50" x2="28" y2="50" class="reticle-tick-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="8" y1="50" x2="28" y2="50" class="reticle-tick" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+
+      <line x1="72" y1="50" x2="92" y2="50" class="reticle-tick-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="72" y1="50" x2="92" y2="50" class="reticle-tick" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+
+      <!-- 4 Inner Viewfinder Focus Brackets [ ] -->
+      <path d="M 43 33 L 33 33 L 33 43" class="reticle-bracket-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" />
+      <path d="M 43 33 L 33 33 L 33 43" class="reticle-bracket bracket-tl" stroke="#FFFFFF" stroke-width="2.5" />
+
+      <path d="M 57 33 L 67 33 L 67 43" class="reticle-bracket-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" />
+      <path d="M 57 33 L 67 33 L 67 43" class="reticle-bracket bracket-tr" stroke="#FFFFFF" stroke-width="2.5" />
+
+      <path d="M 33 57 L 33 67 L 43 67" class="reticle-bracket-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" />
+      <path d="M 33 57 L 33 67 L 43 67" class="reticle-bracket bracket-bl" stroke="#FFFFFF" stroke-width="2.5" />
+
+      <path d="M 67 57 L 67 67 L 57 67" class="reticle-bracket-bg" stroke="rgba(0,0,0,0.85)" stroke-width="4.5" />
+      <path d="M 67 57 L 67 67 L 57 67" class="reticle-bracket bracket-br" stroke="#FFFFFF" stroke-width="2.5" />
+
+      <!-- Center Focus Dot (Gold) -->
+      <circle cx="50" cy="50" r="2.2" class="reticle-center-dot" fill="#D4AF37" />
+    </svg>
+  </div>
+
+  <!-- Persistent Sticky-to-Normal Brand Monument (travels down and lands in Section 2) -->
+  <div class="layr-brand-monument site-sticky-brand" id="bannerBrandMonument" title="Story Lens Media House">
+    <div class="brand-monument-logo-wrap">
+      <img src="./assets/logo-white-CG1pGFns.png" alt="Story Lens Media House" class="brand-logo-img brand-logo-white" />
+      <img src="./assets/logo-dark-8esqWGea.png" alt="Story Lens Media House" class="brand-logo-img brand-logo-dark" />
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       00 // EXACT LAYR MEDIA HERO BANNER SECTION (STORY LENS ADAPTATION)
+       ========================================================================= -->
+  <section class="layr-banner-section" id="hero-banner">
+    <!-- Top Navigation Bar (from LAYR Media Screenshot) -->
+    <div class="layr-top-bar">
+      <!-- Left: Signature Accent Square + [ SOUND: ON ] Audio Toggle -->
+      <div class="layr-top-left">
+        <div class="layr-accent-square" id="layrAccentSquare" title="Story Lens Core"></div>
+        <button class="layr-sound-toggle" id="layrSoundToggle" aria-label="Toggle Sound">
+          [ SOUND: <span id="soundStatusLabel">ON</span> ]
+        </button>
+      </div>
+
+      <!-- Right: Viewfinder Framing Brackets + START A PROJECT + MENU ☰ -->
+      <div class="layr-top-right">
+        <div class="layr-framing-corner layr-corner-tl"></div>
+        <div class="layr-framing-corner layr-corner-tr"></div>
+        <div class="layr-framing-corner layr-corner-bl"></div>
+        <div class="layr-framing-corner layr-corner-br"></div>
+
+        <a href="mailto:hello@storylens.studio" class="btn-layr-project" id="btnLayrProject">
+          START A PROJECT
+        </a>
+
+        <button class="btn-layr-menu" id="btnLayrMenu" aria-label="Open Navigation Menu">
+          <span>MENU</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Monumental Brand Heading Layout Placeholder -->
+    <div class="layr-center-content">
+      <div class="layr-brand-placeholder" aria-hidden="true"></div>
+    </div>
+
+    <!-- Bottom Telemetry & Navigation Bar (from Screenshot) -->
+    <div class="layr-bottom-bar">
+      <!-- Bottom-Left: (↓) SCROLL -->
+      <div>
+        <button class="layr-scroll-cta" id="layrScrollBtn" aria-label="Scroll to featured works">
+          <span class="layr-scroll-circle">↓</span>
+          <span>SCROLL</span>
+        </button>
+      </div>
+
+      <!-- Bottom-Center: Core Discipline Tags -->
+      <div class="layr-disciplines-center">
+        COMMERCIAL. AD REELS. DRONE. STUDIO.
+      </div>
+
+      <!-- Bottom-Right: Crew Manifesto Statement -->
+      <div class="layr-manifesto-right">
+        EVERY FRAME HAS A STORY. INDEPENDENT PRODUCTION STUDIO.
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Slide-in Editorial Menu Drawer -->
+  <div class="layr-drawer-overlay" id="layrDrawer">
+    <div class="layr-drawer-header">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="./assets/logo-RVf2zc9g.png" alt="Story Lens Logo" style="height: 36px; width: auto; object-fit: contain;" />
+        <span style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--gold-champagne);">// DIRECTORY</span>
+      </div>
+      <button class="btn-close-drawer" id="btnCloseDrawer">
+        ✕ CLOSE
+      </button>
+    </div>
+
+    <div class="layr-drawer-links">
+      <a href="#hero-banner" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">01</span>
+        <span>THE VISION</span>
+      </a>
+      <a href="#editorial-reel" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">02</span>
+        <span>EDITORIAL REEL</span>
+      </a>
+      <a href="#showcase" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">03</span>
+        <span>AUDIENCE SHOWCASE</span>
+      </a>
+      <a href="#gallery-reveal" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">04</span>
+        <span>GALLERY REVEAL</span>
+      </a>
+      <a href="#services" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">05</span>
+        <span>CAPABILITIES</span>
+      </a>
+      <a href="#manifesto" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">06</span>
+        <span>MANIFESTO</span>
+      </a>
+      <a href="mailto:hello@storylens.studio" class="layr-drawer-link" data-close="true">
+        <span class="drawer-num">07</span>
+        <span>START A PROJECT</span>
+      </a>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; font-family: var(--font-mono); font-size: 10px; color: rgba(255,255,255,0.5);">
+      <div>VANCOUVER • TORONTO • LONDON • DUBAI</div>
+      <div style="color: var(--gold-champagne);">24.00 FPS // 8K RAW MASTER</div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       01B // LAYR MEDIA EDITORIAL SHOWCASE REEL (EXACT FROM SCREENSHOT)
+       ========================================================================= -->
+  <section class="layr-editorial-section" id="editorial-reel">
+    <!-- Top Navigation Bar -->
+    <div class="reel-top-bar">
+      <div class="reel-top-left">
+        <img src="./assets/logo-dark-8esqWGea.png" alt="Story Lens Media House" class="reel-top-logo" />
+      </div>
+      <div class="reel-top-right">
+        <a href="mailto:hello@storylens.studio" class="btn-reel-project">START A PROJECT</a>
+        <button class="btn-reel-menu" id="btnReelMenu" aria-label="Open Navigation Directory">
+          <span>MENU</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Editorial Content Stage (Horizontal Showcase Strip) -->
+    <div class="reel-content-stage">
+      <!-- Horizontal Continuous Drifting Media Track -->
+      <div class="reel-media-scroll-container" id="reelScrollContainer">
+        <div class="reel-media-track" id="reelMediaTrack">
+          <!-- SET 1 -->
+          <!-- Card 1: Outdoor Conference Booth -->
+          <div class="reel-card" data-title="Futurist Outdoor Booth" data-category="EVENT ACTIVATION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-1-DHYsz_VB.png" alt="Outdoor Event Booth" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- Card 2: Blockchain Futurist Arena Keynote Speaker -->
+          <div class="reel-card" data-title="Futurist Arena Keynote" data-category="EVENT PRODUCTION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-2-CbqgTslV.png" alt="Conference Keynote Stage" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- Card 3: Craft Beer Can Pour / Liquid Cinematography -->
+          <div class="reel-card" data-title="Craft Beverage Pour" data-category="LIQUID CINEMA">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-3-DE9gqPil.png" alt="Craft Beer Pour" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- Card 4: chúuk Artisanal Hot Sauce on Travertine Stone -->
+          <div class="reel-card" data-title="chúuk Hot Sauce" data-category="PRODUCT PHOTOGRAPHY">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-4-CU1nJEOE.png" alt="chúuk Hot Sauce" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- Card 5: The Look Lab Brand Activation / Gala -->
+          <div class="reel-card" data-title="The Look Lab Gala" data-category="BRAND ACTIVATION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-5-DlvQQho0.png" alt="The Look Lab Activation" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- Card 6: Mother Cocktail Bar / Blackberry Coupe Mixology -->
+          <div class="reel-card" data-title="Mother Cocktail Bar" data-category="BEVERAGE & MIXOLOGY">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-6-BWJbEZLE.png" alt="Blackberry Coupe Cocktail" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- SET 2 -->
+          <div class="reel-card" data-title="Futurist Outdoor Booth" data-category="EVENT ACTIVATION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-1-DHYsz_VB.png" alt="Outdoor Event Booth" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="Futurist Arena Keynote" data-category="EVENT PRODUCTION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-2-CbqgTslV.png" alt="Conference Keynote Stage" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="Craft Beverage Pour" data-category="LIQUID CINEMA">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-3-DE9gqPil.png" alt="Craft Beer Pour" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="chúuk Hot Sauce" data-category="PRODUCT PHOTOGRAPHY">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-4-CU1nJEOE.png" alt="chúuk Hot Sauce" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="The Look Lab Gala" data-category="BRAND ACTIVATION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-5-DlvQQho0.png" alt="The Look Lab Activation" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="Mother Cocktail Bar" data-category="BEVERAGE & MIXOLOGY">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-6-BWJbEZLE.png" alt="Blackberry Coupe Cocktail" class="reel-card-img" />
+            </div>
+          </div>
+
+          <!-- SET 3 -->
+          <div class="reel-card" data-title="Futurist Outdoor Booth" data-category="EVENT ACTIVATION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-1-DHYsz_VB.png" alt="Outdoor Event Booth" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="Futurist Arena Keynote" data-category="EVENT PRODUCTION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-2-CbqgTslV.png" alt="Conference Keynote Stage" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="Craft Beverage Pour" data-category="LIQUID CINEMA">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-3-DE9gqPil.png" alt="Craft Beer Pour" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="chúuk Hot Sauce" data-category="PRODUCT PHOTOGRAPHY">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-4-CU1nJEOE.png" alt="chúuk Hot Sauce" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="The Look Lab Gala" data-category="BRAND ACTIVATION">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-5-DlvQQho0.png" alt="The Look Lab Activation" class="reel-card-img" />
+            </div>
+          </div>
+          <div class="reel-card" data-title="Mother Cocktail Bar" data-category="BEVERAGE & MIXOLOGY">
+            <div class="reel-card-img-wrap">
+              <img src="./assets/reel-6-BWJbEZLE.png" alt="Blackberry Coupe Cocktail" class="reel-card-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar (Scroll CTA & Photo Video Content) -->
+    <div class="reel-bottom-bar">
+      <button class="reel-scroll-cta" id="reelScrollBtn" aria-label="Scroll to Layers Philosophy">
+        <span class="reel-scroll-circle">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </span>
+        <span>SCROLL</span>
+      </button>
+
+      <div class="reel-tagline-right">
+        PHOTO. VIDEO. CONTENT.
+      </div>
+    </div>
+  </section>
+
+    <!-- =========================================================================
+       03 // AUDIENCE SHOWCASE (ENGAGE AUDIENCES WITH STUNNING VIDEOS)
+       ========================================================================= -->
+  <section class="sl-showcase-section" id="showcase">
+    <!-- Atmospheric Ambient Glows (Story Lens Champagne/Amber Palette) -->
+    <div class="sl-showcase-glow-stage" aria-hidden="true">
+      <div class="sl-glow-top"></div>
+      <div class="sl-glow-bottom-left"></div>
+      <div class="sl-glow-bottom-right"></div>
+    </div>
+
+    <!-- Main Editorial Content -->
+    <div class="sl-showcase-center-content">
+      <!-- Creator Badge -->
+      <div class="sl-showcase-badge">
+        <span class="sl-badge-dot"></span>
+        <span>JOIN OVER 100,000 HAPPY CREATORS &amp; VISIONARIES</span>
+      </div>
+
+      <!-- Monumental Architectural Heading -->
+      <h2 class="sl-showcase-headline">
+        ENGAGE AUDIENCES<br />
+        WITH <span class="sl-gold-shimmer">STUNNING VIDEOS</span>
+      </h2>
+
+      <!-- Narrative Subtitle -->
+      <p class="sl-showcase-sub">
+        Boost your brand with high-impact short videos and cinematic reels created by talented professionals ready to move your business forward.
+      </p>
+
+      <!-- Signature Gold CTA -->
+      <div class="sl-showcase-cta-wrap">
+        <a href="mailto:hello@storylens.studio" class="sl-btn-showcase-cta" id="btnShowcaseStart">
+          <span>GET STARTED</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Continuous Image Marquee with Alternating Tilted Cards -->
+    <div class="sl-showcase-marquee-stage">
+      <div class="sl-marquee-track">
+        <!-- Set 1 (Primary) -->
+        <div class="sl-marquee-group">
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(16px);" data-title="Cinematic Portrait I">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 1" loading="eager" onerror="this.src='reel/reel-1.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(0px);" data-title="Cinematic Portrait II">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 2" loading="eager" onerror="this.src='reel/reel-2.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(10px);" data-title="Cinematic Portrait III">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 3" loading="eager" onerror="this.src='reel/reel-3.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(16px);" data-title="Cinematic Portrait IV">
+            <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 4" loading="eager" onerror="this.src='reel/reel-4.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(0px);" data-title="Cinematic Portrait V">
+            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 5" loading="lazy" onerror="this.src='reel/reel-5.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(10px);" data-title="Cinematic Portrait VI">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 6" loading="lazy" onerror="this.src='reel/reel-6.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(16px);" data-title="Cinematic Portrait VII">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 7" loading="lazy" onerror="this.src='reel/reel-1.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(0px);" data-title="Cinematic Portrait VIII">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=85" alt="Creative showcase 8" loading="lazy" onerror="this.src='reel/reel-2.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+        </div>
+
+        <!-- Set 2 (Seamless Infinite Clone) -->
+        <div class="sl-marquee-group" aria-hidden="true">
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(16px);">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-1.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(0px);">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-2.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(10px);">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-3.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(16px);">
+            <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-4.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(0px);">
+            <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-5.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(10px);">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-6.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(-2deg) translateY(16px);">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-1.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+          <div class="sl-marquee-card" style="transform: rotate(4deg) translateY(0px);">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=85" alt="" loading="lazy" onerror="this.src='reel/reel-2.png'" />
+            <div class="sl-marquee-card-vignette"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       04 // CINEMATIC GALLERY REVEAL (PINNED 3x3 EDITORIAL ARCHIVE)
+       ========================================================================= -->
+  <section class="cgr-pinned-stage" id="gallery-reveal">
+    <div class="cgr-sticky-viewport">
+      <div class="cgr-hero-inner" id="cgrHeroInner">
+        <!-- 3x3 Scaling Gallery Grid -->
+        <div class="cgr-gallery" id="cgrGallery" aria-hidden="true">
+          <!-- Column 1 -->
+          <div class="cgr-column">
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80" alt="Cinema Camera Setup" draggable="false" loading="eager" onerror="this.src='reel/reel-1.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&w=1200&q=80" alt="Dramatic Atmosphere" draggable="false" loading="eager" onerror="this.src='reel/reel-2.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80" alt="Director Monitor" draggable="false" loading="eager" onerror="this.src='reel/reel-3.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+          </div>
+          <!-- Column 2 -->
+          <div class="cgr-column">
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80" alt="High Fashion Portrait" draggable="false" loading="lazy" onerror="this.src='reel/reel-4.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80" alt="Steadicam Operator" draggable="false" loading="lazy" onerror="this.src='reel/reel-5.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=80" alt="Soundstage Lights" draggable="false" loading="lazy" onerror="this.src='reel/reel-6.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+          </div>
+          <!-- Column 3 -->
+          <div class="cgr-column">
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1200&q=80" alt="Neon Nightlife" draggable="false" loading="lazy" onerror="this.src='reel/reel-1.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80" alt="Soundstage Mastering" draggable="false" loading="lazy" onerror="this.src='reel/reel-2.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+            <figure class="cgr-card">
+              <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="35mm Film Clapper" draggable="false" loading="lazy" onerror="this.src='reel/reel-3.png'" />
+              <span class="cgr-card-shine"></span>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Scaling Brand Mark (Bottom Left -> Top) -->
+        <div class="cgr-mark" id="cgrMark">STORY LENS // 26</div>
+
+        <!-- Center Copy with Word-by-Word Scroll Reveal -->
+        <div class="cgr-copy">
+          <p class="cgr-kicker">INDEPENDENT CINEMATIC ARCHIVE // 24 FPS</p>
+          <h2 class="cgr-heading">
+            <span class="cgr-word">Culture</span>
+            <span class="cgr-word">moves</span>
+            <span class="cgr-word">fast.</span>
+            <span class="cgr-word">We</span>
+            <span class="cgr-word">capture</span>
+            <span class="cgr-word">the</span>
+            <span class="cgr-word">moments</span>
+            <span class="cgr-word">worth</span>
+            <span class="cgr-word">remembering.</span>
+          </h2>
+          <a class="cgr-button" id="cgrButton" href="#services">
+            <span>ENTER THE ARCHIVE</span>
+            <span class="cgr-button-icon" aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <!-- Bottom Right Telemetry (Blurs away early) -->
+        <p class="cgr-footer" id="cgrFooter">VANCOUVER • TORONTO • LONDON • DUBAI // 8K RAW MASTER</p>
+      </div>
+
+      <!-- Final Transition Overlay -->
+      <div class="cgr-overlay" id="cgrOverlay"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       05 // CAPABILITIES (VELOUR PRODUCTIONS EXACT SERVICES ARCHITECTURE)
+       ========================================================================= -->
+  <section class="velour-capabilities-section" id="services">
+    <!-- Atmospheric Ambient Lighting -->
+    <div class="velour-cap-ambient-glow" aria-hidden="true"></div>
+
+    <div class="velour-cap-container">
+      <!-- Section Header Kicker -->
+      <div class="velour-cap-header">
+        <div class="velour-cap-kicker">
+          <span class="velour-kicker-dot"></span>
+          <span>05 // CAPABILITIES & DISCIPLINES</span>
+        </div>
+        <div class="velour-cap-meta">
+          <span>VANCOUVER • LONDON • DUBAI</span>
+          <span class="velour-meta-fps">24.00 FPS MASTER ARCHIVE</span>
+        </div>
+      </div>
+
+      <!-- Services List (Exact 4 rows from Velour Productions Image) -->
+      <div class="velour-cap-list" id="velourCapList">
+
+        <!-- Row 01: VIDEOGRAPHY -->
+        <div class="velour-cap-row" data-index="01" data-service="VIDEOGRAPHY" data-media="reel/reel-1.png" data-badge="8K RAW MASTER // 24 FPS" data-title="Commercial & Brand Cinema">
+          <div class="velour-row-line"></div>
+          <div class="velour-row-inner">
+            <div class="velour-row-title-wrap">
+              <h2 class="velour-row-title">VIDEOGRAPHY</h2>
+            </div>
+            <div class="velour-row-desc-col">
+              <span class="velour-row-num">01</span>
+              <p class="velour-row-desc">END-TO-END VIDEO PRODUCTION SHAPED AROUND THE STORY.</p>
+              <span class="velour-row-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 02: PHOTOGRAPHY -->
+        <div class="velour-cap-row" data-index="02" data-service="PHOTOGRAPHY" data-media="reel/reel-4.png" data-badge="CAMPAIGN & EDITORIAL // 100MP" data-title="Editorial & Product Stills">
+          <div class="velour-row-line"></div>
+          <div class="velour-row-inner">
+            <div class="velour-row-title-wrap">
+              <h2 class="velour-row-title">PHOTOGRAPHY</h2>
+            </div>
+            <div class="velour-row-desc-col">
+              <span class="velour-row-num">02</span>
+              <p class="velour-row-desc">CAMPAIGN, PRODUCT, AND EDITORIAL IMAGERY WITH CINEMATIC INTENT.</p>
+              <span class="velour-row-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 03: SOCIAL CONTENT -->
+        <div class="velour-cap-row" data-index="03" data-service="SOCIAL CONTENT" data-media="reel/reel-2.png" data-badge="9:16 VERTICAL // 120 FPS HIGH-SPEED" data-title="Bespoke Platform Stories">
+          <div class="velour-row-line"></div>
+          <div class="velour-row-inner">
+            <div class="velour-row-title-wrap">
+              <h2 class="velour-row-title">SOCIAL CONTENT</h2>
+            </div>
+            <div class="velour-row-desc-col">
+              <span class="velour-row-num">03</span>
+              <p class="velour-row-desc">PLATFORM-NATIVE STORIES TOLD BESPOKE FOR YOUR BRAND.</p>
+              <span class="velour-row-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 04: CREATIVE DIRECTION -->
+        <div class="velour-cap-row" data-index="04" data-service="CREATIVE DIRECTION" data-media="reel/reel-3.png" data-badge="CONCEPT TO MASTER // ART DIRECTION" data-title="Visual Direction & Cohesion">
+          <div class="velour-row-line"></div>
+          <div class="velour-row-inner">
+            <div class="velour-row-title-wrap">
+              <h2 class="velour-row-title">CREATIVE DIRECTION</h2>
+            </div>
+            <div class="velour-row-desc-col">
+              <span class="velour-row-num">04</span>
+              <p class="velour-row-desc">CONCEPT AND VISUAL DIRECTION THAT CONNECTS EVERY FRAME.</p>
+              <span class="velour-row-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+          <div class="velour-row-line velour-row-line-bottom"></div>
+        </div>
+
+      </div>
+
+      <!-- Floating Media Preview Card (Velour Productions Signature Interaction) -->
+      <div class="velour-floating-card" id="velourFloatingCard" aria-hidden="true">
+        <div class="velour-floating-inner">
+          <img class="velour-floating-img" id="velourFloatingImg" src="./assets/reel-1-DHYsz_VB.png" alt="Discipline Preview" />
+          <div class="velour-floating-vignette"></div>
+          <div class="velour-floating-meta">
+            <span class="velour-floating-badge" id="velourFloatingBadge">[ 8K RAW MASTER // 24 FPS ]</span>
+            <span class="velour-floating-title" id="velourFloatingTitle">Commercial & Brand Cinema</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       06 // ASCENT EDITORIAL REVEAL (STORY LENS MANIFESTO & FILM PHILOSOPHY)
+       ========================================================================= -->
+  <section class="ar-root" id="manifesto">
+    <!-- Editorial Viewfinder Header Chrome -->
+    <div class="ar-chrome">
+      <div class="ar-chrome-left">
+        <span class="ar-mark">STORY LENS®</span>
+        <span class="ar-tag">// CINEMATIC MANIFESTO</span>
+      </div>
+      <div class="ar-chrome-right">
+        <span class="ar-tag">24 FPS · 8K RAW MASTER · DCI SCOPE</span>
+      </div>
+    </div>
+
+    <!-- 1 — Hero: The Signal Is Visceral -->
+    <div class="ar-section ar-section-hero">
+      <div class="ar-section-inner">
+        <span class="ar-kicker">01 // THE MANIFESTO</span>
+        <h2 class="ar-display">
+          <span class="ar-line">THE FRAME</span>
+          <span class="ar-line">IS VISCERAL</span>
+        </h2>
+        <p class="ar-sub">
+          Every lens choice is an emotional contract. We turn raw moments into enduring cinematic perspective.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2 — Right-aligned: Built For The Big Screen -->
+    <div class="ar-section ar-section-right">
+      <div class="ar-section-inner">
+        <span class="ar-kicker">02 // 8K RAW OPTICS</span>
+        <h2 class="ar-large">
+          <span class="ar-line">BUILT FOR</span>
+          <span class="ar-line">THE BIG SCREEN</span>
+        </h2>
+        <p class="ar-sub">
+          Custom anamorphic glass. High-velocity FPV drone tracking. Soundstage lighting shaped with unyielding intention.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 — Statement: Every Story Earns Its Entrance -->
+    <div class="ar-section">
+      <div class="ar-section-inner">
+        <span class="ar-kicker">03 // PHILOSOPHY</span>
+        <h2 class="ar-medium">
+          <span class="ar-line">EVERY STORY</span>
+          <span class="ar-line">EARNS ITS</span>
+          <span class="ar-line">ENTRANCE</span>
+        </h2>
+        <p class="ar-sub">
+          No filler frames. No synthetic shortcuts. Only authentic human stories translated into monumental imagery.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 — Outro: Story Lens Media House -->
+    <div class="ar-section ar-section-outro">
+      <div class="ar-section-inner">
+        <h2 class="ar-display ar-accent">
+          <span class="ar-line">STORY LENS</span>
+        </h2>
+        <h3 class="ar-large">
+          <span class="ar-line">MEDIA HOUSE</span>
+        </h3>
+        <p class="ar-meta">EST. 2024 — INDEPENDENT CINEMATIC ARCHIVE // 24 FPS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       07 // FOOTER DIRECTORY
+       ========================================================================= -->
+  <footer class="velour-footer">
+    <div class="footer-top-grid">
+      <div>
+        <img src="./assets/logo-RVf2zc9g.png" alt="Story Lens — Every Frame Has a Story" style="height: 50px; width: auto; object-fit: contain; margin-bottom: 16px; display: block;" />
+        <p class="footer-brand-desc">
+          Every Frame Has a Story. An independent creative production studio translating brand moments into visceral perspectives across commercial videography, ad reels, FPV drone tracking, and studio productions.
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 9px; color: var(--gold-champagne); letter-spacing: 2px;">
+          CINEMATIC INTENT // VANCOUVER • LONDON • DUBAI
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-h4">// CHAPTERS</div>
+        <ul class="footer-links-col">
+          <li><a href="#hero-banner">01 // The Vision</a></li>
+          <li><a href="#editorial-reel">02 // Editorial Reel</a></li>
+          <li><a href="#showcase">03 // Audience Showcase</a></li>
+          <li><a href="#gallery-reveal">04 // Gallery Reveal</a></li>
+          <li><a href="#services">05 // Capabilities</a></li>
+          <li><a href="#manifesto">06 // Film Manifesto</a></li>
+          <li><a href="mailto:hello@storylens.studio">07 // Contact Studio</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-h4">// STUDIO ATELIERS</div>
+        <ul class="footer-links-col">
+          <li>
+            <span style="color: #FFF; display: block;">VANCOUVER ATELIER</span>
+            <span style="color: var(--text-muted);">293 East 2nd Avenue, BC</span>
+          </li>
+          <li>
+            <span style="color: #FFF; display: block;">LONDON SOUNDSTAGE</span>
+            <span style="color: var(--text-muted);">Mayfair W1K • Stage Alpha</span>
+          </li>
+          <li>
+            <span style="color: #FFF; display: block;">DUBAI CINE-STUDIO</span>
+            <span style="color: var(--text-muted);">Al Quoz Creative Quarter 1</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-h4">// CONCIERGE</div>
+        <div style="font-family: var(--font-mono); font-size: 11px; margin-bottom: 8px;">
+          <a href="mailto:hello@storylens.studio" style="color: var(--gold-champagne); text-decoration: none;">hello@storylens.studio</a>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 9px; color: var(--text-muted); margin-bottom: 20px;">
+          Direct Line: +1 604 728 0914
+        </div>
+        <span style="display: inline-block; padding: 4px 10px; border-radius: 4px; background: var(--bg-surface); border: 1px solid var(--gold-border); font-family: var(--font-mono); font-size: 8px; color: var(--gold-champagne);">
+          STATUS: CURRENTLY BOOKING
+        </span>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; 2026 STORY LENS PRODUCTIONS LTD. ALL RIGHTS RESERVED.</div>
+      <div style="display: flex; gap: 24px;">
+        <div>LONDON: <span id="londonClock" style="color: var(--gold-champagne);">12:00:00</span> GMT</div>
+        <div>DUBAI: <span id="dubaiClock" style="color: var(--gold-champagne);">16:00:00</span> GST</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master JavaScript Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
