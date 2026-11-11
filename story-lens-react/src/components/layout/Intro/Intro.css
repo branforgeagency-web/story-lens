@@ -1,0 +1,37 @@
+html.sl-intro-active,
+html.sl-intro-active body {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+.sl-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+}
+
+.sl-intro-video {
+  width: min(23vw, 350px);
+  height: auto;
+  max-height: 27vh;
+  object-fit: contain;
+  background: #000;
+  pointer-events: none;
+}
+
+.sl-intro.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .sl-intro-video { width: 42vw; }
+}

@@ -1,0 +1,47 @@
+.banner-focus-reticle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, transform 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: left, top, transform, opacity;
+}
+
+.banner-focus-reticle.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reticle-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
+}
+
+.banner-focus-reticle.is-focused {
+  transform: translate(-50%, -50%) scale(0.92);
+}
+
+.banner-focus-reticle.is-focused .reticle-bracket {
+  stroke: var(--gold-champagne);
+}
+
+.banner-focus-reticle.is-focused .reticle-center-dot {
+  fill: #FFFFFF;
+}
+
+.banner-focus-reticle.is-hovering-btn {
+  transform: translate(-50%, -50%) scale(1.18);
+}
+
+.banner-focus-reticle.is-hovering-btn .reticle-ring {
+  stroke: var(--gold-champagne);
+}

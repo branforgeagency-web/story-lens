@@ -1,0 +1,192 @@
+.ar-root {
+  background: #050505;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  position: relative;
+  overflow-x: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.ar-chrome {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 4vw, 3rem);
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ar-chrome-left,
+.ar-chrome-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ar-mark {
+  font-family: var(--font-headline);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--gold-champagne);
+  text-transform: uppercase;
+}
+
+.ar-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ar-ch {
+  display: inline-block;
+  transform: translateX(56px) skewX(18deg);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.46s ease-out;
+}
+
+.ar-section.is-visible .ar-ch {
+  transform: translateX(0) skewX(0);
+  opacity: 1;
+}
+
+.ar-section.ar-no-trans .ar-ch {
+  transition: none !important;
+}
+
+.ar-line {
+  display: block;
+  line-height: 0.94;
+  white-space: nowrap;
+}
+
+.ar-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(3rem, 7vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ar-section-inner {
+  max-width: 1440px;
+  width: 100%;
+}
+
+.ar-section-hero {
+  min-height: 88vh;
+  justify-content: center;
+  padding-top: clamp(4rem, 8vw, 8rem);
+}
+
+.ar-section-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.ar-section-right .ar-section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ar-section-outro {
+  min-height: 80vh;
+  justify-content: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+
+.ar-kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 0.85vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-champagne);
+  margin-bottom: 1.5rem;
+}
+
+.ar-display {
+  font-family: 'Syne', 'Bebas Neue', 'Anton', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.2rem, 8.5vw, 9.5rem);
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ar-large {
+  font-family: 'Syne', 'Bebas Neue', 'Anton', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6.5vw, 7.5rem);
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ar-medium {
+  font-family: 'Syne', 'Bebas Neue', 'Anton', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5.5vw, 6.2rem);
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.ar-sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 48ch;
+  line-height: 1.7;
+}
+
+.ar-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.85);
+  margin-top: 2rem;
+}
+
+.ar-accent {
+  color: var(--gold-champagne);
+  background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #9E7D21 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .ar-section-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .ar-section-right .ar-section-inner {
+    align-items: flex-start;
+  }
+  .ar-line {
+    white-space: normal;
+  }
+}

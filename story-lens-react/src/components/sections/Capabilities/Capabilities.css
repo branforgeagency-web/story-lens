@@ -1,0 +1,296 @@
+.velour-capabilities-section {
+  position: relative;
+  background: #0A0A0C !important;
+  color: #FFFFFF;
+  padding: clamp(90px, 13vh, 150px) clamp(24px, 5vw, 64px);
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+}
+
+.velour-cap-ambient-glow {
+  position: absolute;
+  top: 25%;
+  right: -10%;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.velour-cap-container {
+  max-width: 1540px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.velour-cap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 28px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.9vw, 12px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.velour-cap-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold-champagne);
+  font-weight: 700;
+}
+
+.velour-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold-champagne);
+  box-shadow: 0 0 10px var(--gold-champagne);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+.velour-cap-meta {
+  display: flex;
+  gap: 28px;
+  color: var(--text-muted);
+}
+
+.velour-meta-fps {
+  color: var(--gold-champagne);
+}
+
+.velour-cap-list {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.velour-cap-row {
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.45s var(--ease-velour), filter 0.45s var(--ease-velour);
+}
+
+.velour-cap-list.has-hovered-child .velour-cap-row {
+  opacity: 0.28;
+  filter: blur(0.4px);
+}
+
+.velour-cap-list.has-hovered-child .velour-cap-row.is-hovered {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.velour-row-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  transform-origin: left;
+  transition: background 0.4s ease, transform 0.7s var(--ease-velour);
+}
+
+.velour-cap-row.is-hovered .velour-row-line {
+  background: rgba(212, 175, 55, 0.45);
+}
+
+.velour-row-line-bottom {
+  margin-top: 0;
+}
+
+.velour-row-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(26px, 4.4vh, 46px) 0;
+  gap: 32px;
+}
+
+.velour-row-title-wrap {
+  overflow: hidden;
+  flex: 1;
+}
+
+.velour-row-title {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: clamp(3.8rem, 8.5vw, 8.8rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: #F2EFE9;
+  margin: 0;
+  display: inline-block;
+  will-change: transform, color;
+  transition: transform 0.45s var(--ease-velour), color 0.35s ease, text-shadow 0.35s ease;
+}
+
+.velour-cap-row.is-hovered .velour-row-title {
+  transform: translateX(18px);
+  color: #FFFFFF;
+  text-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+}
+
+.velour-row-desc-col {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3.2vw, 42px);
+  max-width: 480px;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.velour-row-num {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  transition: color 0.35s ease, transform 0.35s var(--ease-velour);
+}
+
+.velour-cap-row.is-hovered .velour-row-num {
+  color: var(--gold-champagne);
+  transform: scale(1.15);
+}
+
+.velour-row-desc {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.92vw, 12px);
+  line-height: 1.55;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  transition: color 0.35s ease;
+}
+
+.velour-cap-row.is-hovered .velour-row-desc {
+  color: #FFFFFF;
+}
+
+.velour-row-arrow {
+  font-family: var(--font-headline);
+  font-size: 20px;
+  color: var(--gold-champagne);
+  opacity: 0;
+  transform: translateX(-12px) rotate(-15deg);
+  transition: opacity 0.35s ease, transform 0.35s var(--ease-velour);
+  flex-shrink: 0;
+}
+
+.velour-cap-row.is-hovered .velour-row-arrow {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
+}
+
+.velour-floating-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: clamp(280px, 25vw, 380px);
+  height: clamp(185px, 16vw, 245px);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: #050505;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(212, 175, 55, 0.2);
+  transform: translate3d(-50%, -50%, 0) scale(0.75);
+  will-change: transform, opacity;
+  transition: opacity 0.35s var(--ease-velour), transform 0.35s var(--ease-velour);
+}
+
+.velour-floating-card.is-active {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.velour-floating-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.velour-floating-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.6s var(--ease-velour), filter 0.4s ease;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.velour-floating-card.is-active .velour-floating-img {
+  transform: scale(1.0);
+}
+
+.velour-floating-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(5,5,5,0.85) 100%);
+  pointer-events: none;
+}
+
+.velour-floating-meta {
+  position: absolute;
+  bottom: 14px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+}
+
+.velour-floating-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--gold-champagne);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.velour-floating-title {
+  font-family: var(--font-headline);
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .velour-row-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 0;
+  }
+  .velour-row-title {
+    font-size: clamp(2.8rem, 11vw, 4.4rem);
+  }
+  .velour-row-desc-col {
+    max-width: 100%;
+    width: 100%;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+  .velour-floating-card {
+    display: none !important;
+  }
+  .velour-cap-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

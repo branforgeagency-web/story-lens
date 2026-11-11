@@ -1,0 +1,1 @@
+export { BrandMonument } from "./BrandMonument";

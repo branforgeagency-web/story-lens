@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Core Strict Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261111h" />
 </head>
 <body>
 
@@ -138,11 +138,10 @@
        00 // EXACT LAYR MEDIA HERO BANNER SECTION (STORY LENS ADAPTATION)
        ========================================================================= -->
   <section class="layr-banner-section" id="hero-banner">
-    <!-- Interactive 3D DSLR (right side) — aims at the cursor, click to shoot -->
-    <div class="hero-dslr" id="heroDslr" aria-hidden="true">
-      <div class="dslr-canvas-wrap"></div>
-      <div class="dslr-flash"></div>
-      <div class="dslr-loading"><span class="dslr-loader"></span></div>
+    <!-- Background video (loops silently behind the banner content) -->
+    <div class="layr-banner-video-wrap" aria-hidden="true">
+      <video class="layr-banner-video" src="bannerbg.mp4?v=20261111b" autoplay muted loop playsinline preload="auto" disablepictureinpicture></video>
+      <div class="layr-banner-video-shade"></div>
     </div>
 
     <!-- Top Navigation Bar (from LAYR Media Screenshot) -->
@@ -150,9 +149,6 @@
       <!-- Left: Signature Accent Square + [ SOUND: ON ] Audio Toggle -->
       <div class="layr-top-left">
         <div class="layr-accent-square" id="layrAccentSquare" title="Story Lens Core"></div>
-        <button class="layr-sound-toggle" id="layrSoundToggle" aria-label="Toggle Sound">
-          [ SOUND: <span id="soundStatusLabel">ON</span> ]
-        </button>
       </div>
 
       <!-- Right: Viewfinder Framing Brackets + START A PROJECT + MENU ☰ -->
@@ -192,14 +188,14 @@
         </button>
       </div>
 
-      <!-- Bottom-Center: Core Discipline Tags -->
-      <div class="layr-disciplines-center">
-        COMMERCIAL. AD REELS. DRONE. STUDIO.
-      </div>
-
-      <!-- Bottom-Right: Crew Manifesto Statement -->
-      <div class="layr-manifesto-right">
-        EVERY FRAME HAS A STORY. INDEPENDENT PRODUCTION STUDIO.
+      <!-- Bottom-Right: Core Discipline Tags (top) & Crew Manifesto Statement (bottom) -->
+      <div class="layr-bottom-right">
+        <div class="layr-disciplines-center">
+          COMMERCIAL. AD REELS. DRONE. STUDIO.
+        </div>
+        <div class="layr-manifesto-right">
+          EVERY FRAME HAS A STORY. INDEPENDENT PRODUCTION STUDIO.
+        </div>
       </div>
     </div>
   </section>
@@ -794,8 +790,8 @@
   <section class="slf-page" id="slFooter">
     <!-- Stacked illustrated scene layers (back → front), each with its own parallax depth -->
     <div class="slf-scene" aria-hidden="true">
-      <img class="slf-layer slf-l-sky" src="footer-scene/01-sky.svg" alt="" draggable="false" style="--depth:3;" />
-      <img class="slf-layer slf-l-sun" src="footer-scene/02-sun.svg" alt="" draggable="false" style="--depth:5;" />
+      <img class="slf-layer slf-l-sky" src="footer-scene/light/01-sky.svg" alt="" draggable="false" style="--depth:3;" />
+      <img class="slf-layer slf-l-sun" src="footer-scene/light/02-sun.svg" alt="" draggable="false" style="--depth:5;" />
 
       <div class="slf-mist slf-mist-1"></div>
       <div class="slf-mist slf-mist-2"></div>
@@ -806,10 +802,10 @@
         <g class="slf-bird slf-bird-3"><path d="M125 26C130 20 136 20 141 25C146 20 152 20 157 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></g>
       </svg>
 
-      <img class="slf-layer slf-l-mountains" src="footer-scene/03-mountains.svg" alt="" draggable="false" style="--depth:9;" />
-      <img class="slf-layer slf-l-cranes" src="footer-scene/04-cranes.svg" alt="" draggable="false" style="--depth:13;" />
-      <img class="slf-layer slf-l-hills" src="footer-scene/05-hills.svg" alt="" draggable="false" style="--depth:18;" />
-      <img class="slf-layer slf-l-foreground" src="footer-scene/06-foreground.svg" alt="" draggable="false" style="--depth:26;" />
+      <img class="slf-layer slf-l-mountains" src="footer-scene/light/03-mountains.svg" alt="" draggable="false" style="--depth:9;" />
+      <img class="slf-layer slf-l-cranes" src="footer-scene/light/04-cranes.svg" alt="" draggable="false" style="--depth:13;" />
+      <img class="slf-layer slf-l-hills" src="footer-scene/light/05-hills.svg" alt="" draggable="false" style="--depth:18;" />
+      <img class="slf-layer slf-l-foreground" src="footer-scene/light/06-foreground.svg" alt="" draggable="false" style="--depth:26;" />
       <div class="slf-scene-shade"></div>
     </div>
 
@@ -836,7 +832,7 @@
       <div class="slf-main">
         <div class="slf-brand-col">
           <a class="slf-brand" href="#hero-banner" aria-label="Story Lens home">
-            <img src="logo.png" alt="Story Lens" class="slf-brand-logo" />
+            <img src="logo-dark.png" alt="Story Lens" class="slf-brand-logo" />
           </a>
           <p class="slf-copyright">
             &copy; 2026 Story Lens Productions Ltd.
@@ -888,8 +884,6 @@
   </section>
 
   <!-- Master JavaScript Engine -->
-  <script src="script.js"></script>
-  <!-- Interactive 3D DSLR (loads Three.js on demand) -->
-  <script src="dslr-hero.js"></script>
+  <script src="script.js?v=20261111h"></script>
 </body>
 </html>

@@ -448,14 +448,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const sec2Top = sec2Editorial.offsetTop; // Document Y of Section 2
 
       // Starting position in Section 1 (reverted to original hero placement)
-      const initTop = Math.max(180, Math.min(360, winH * 0.34));
+      // Starts in the bottom-left corner, just above the bottom text bar
+      const logoWrap = bannerMonument.querySelector('.brand-monument-logo-wrap');
+      const logoH = logoWrap ? logoWrap.offsetHeight : 180;
+      const bottomGap = window.innerWidth <= 900 ? 140 : 72;
+      const initTop = Math.max(160, winH - logoH - bottomGap);
 
       // Landed position inside Section 2 (lands directly in Section 2 top bar aligned with menu)
       const targetTop = 28;
 
       // Target scale when landed in Section 2 (made bigger for prominent end animation)
       const isMobile = window.innerWidth <= 900;
-      const targetScale = isMobile ? 0.44 : 0.38;
+      const targetScale = isMobile ? 0.48 : 0.40;
 
       // 50px EXTRA STICKY SCROLL:
       // The text stays sticky for an extra 50px of scroll after reaching Section 2!

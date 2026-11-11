@@ -1,0 +1,236 @@
+.layr-editorial-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: auto;
+  max-height: none;
+  background: #FFFFFF !important;
+  color: #050505 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 28px 48px 28px;
+  overflow: hidden;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.reel-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 20;
+}
+
+.reel-top-logo {
+  height: 40px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.reel-top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-reel-project {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-champagne);
+  color: #050505;
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-reel-project:hover {
+  background: #C89220;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
+}
+
+.btn-reel-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: #050505;
+  border: 1px solid #D0D0D0;
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-reel-menu:hover {
+  background: #F4F4F4;
+  border-color: #999999;
+  transform: translateY(-2px);
+}
+
+.reel-content-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.reel-media-scroll-container {
+  width: 100%;
+  height: auto;
+  min-height: 380px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  z-index: 2;
+  margin-bottom: 4px;
+}
+
+.reel-media-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.reel-media-scroll-container:active {
+  cursor: grabbing;
+}
+
+.reel-media-track {
+  display: flex;
+  align-items: center;
+  padding-left: clamp(80px, 12vw, 240px);
+  padding-right: 60px;
+  will-change: transform;
+}
+
+.reel-card {
+  position: relative;
+  flex-shrink: 0;
+  height: clamp(280px, 42vh, 380px);
+  width: clamp(200px, 20vw, 300px);
+  overflow: hidden;
+  background: #EAEAEA;
+  border-radius: 0;
+  transform-origin: center center;
+  will-change: transform, margin;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.35s ease;
+}
+
+.reel-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  z-index: 15;
+}
+
+.reel-card-img-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #F0F0F0;
+}
+
+.reel-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reel-card:hover .reel-card-img {
+  transform: scale(1.06);
+}
+
+.reel-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 16px;
+  z-index: 20;
+}
+
+.reel-scroll-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  color: #050505;
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.reel-scroll-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.reel-scroll-cta:hover .reel-scroll-circle {
+  transform: translateY(3px);
+  background: #050505;
+  color: #FFFFFF;
+}
+
+.reel-tagline-right {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #050505;
+}
+
+@media (max-width: 900px) {
+  .layr-editorial-section {
+    padding: 24px 20px;
+    height: auto;
+    min-height: auto;
+  }
+  .reel-media-track {
+    padding-left: 0;
+  }
+}
